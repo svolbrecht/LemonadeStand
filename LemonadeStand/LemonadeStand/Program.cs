@@ -10,9 +10,9 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-
+            Player player = new Player();
             Store today = new Store();
-            today.GetSupplies();
+            today.GetSupplies(player);
             Console.ReadKey();
 
           

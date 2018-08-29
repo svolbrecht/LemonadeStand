@@ -18,7 +18,7 @@ namespace LemonadeStand
 
         public void GetSupplies(Player player)
         {
-            Console.WriteLine("Purchase options:\nFor cups, enter '1'\nFor lemons, enter '2'\nFor sugar, enter '3'\nFor ice cubes, enter '4'");
+            Console.WriteLine("Purchase options:\nFor cups, Press '1'\nFor lemons, Press '2'\nFor sugar, Press '3'\nFor ice cubes, Press '4'");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -47,8 +47,20 @@ namespace LemonadeStand
                     break;
 
                 default:
-                    Console.WriteLine("Please enter valid choice.");
+                    Console.WriteLine("Please enter valid choice");
                     GetSupplies(player);
+                    break;
+            }
+
+            Console.WriteLine("Purchase more supplies?\nFor yes - Press '1'\nFor no - Press any button");
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    GetSupplies(player);
+                    break;
+
+                default:
                     break;
             }
         }
@@ -82,7 +94,7 @@ namespace LemonadeStand
 
         public void GetLemons()
         {
-            Console.WriteLine("Lemon purchase options\n10 Lemons for $.65 - Press '1'\n30 Lemons for $1.8\n60 Lemons for $3.5 - Press '3'");
+            Console.WriteLine("Lemon purchase options\n10 Lemons for $.65 - Press '1'\n30 Lemons for $1.8 - Press '2'\n60 Lemons for $3.5 - Press '3'");
             string userInput = Console.ReadLine();
             //double price = 0;
             //int quantity = 0;
@@ -125,7 +137,7 @@ namespace LemonadeStand
 
         public void GetCupsOfSugar()
         {
-            Console.WriteLine("Sugar purchase options\n8 cups of sugar for $.70 - Press '1'\n20 cups of sugar for $1.30\n45 cups of sugar for $2.50 - Press '3'");
+            Console.WriteLine("Sugar purchase options\n8 cups of sugar for $.70 - Press '1'\n20 cups of sugar for $1.30 - Press '2'\n45 cups of sugar for $2.50 - Press '3'");
             string userInput = Console.ReadLine();
             //double price = 0;
             //int quantity = 0;
@@ -152,7 +164,7 @@ namespace LemonadeStand
 
         public void GetIceCubes()
         {
-            Console.WriteLine("Ice cube purchase options\n100 Ice cubes for $.85 - Press '1'\n250 Ice cubes for $2.00\n500 Ice cubes for $3.90 - Press '3'");
+            Console.WriteLine("Ice cube purchase options\n100 Ice cubes for $.85 - Press '1'\n250 Ice cubes for $2.00 - Press '2'\n500 Ice cubes for $3.90 - Press '3'");
             string userInput = Console.ReadLine();
             //double price = 0;
             //int quantity = 0;
