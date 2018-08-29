@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Wallet
     {
-        //member variables
-        //List<Customer>
+        //Member variables
+
+        public double money = 20;
 
         //constructor
 
         //member methods
-
     }
 }

@@ -6,23 +6,39 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Game
+    public class Game
     {
         //member variables
+
         int day = 0;
+        Player player;
+        Store store;
+        //Day day;
         //constructor
 
+        public Game()
+        {
+            player = new Player();
+            store = new Store();
+        }
+
         //member methods
+        UserInterface welcome = new UserInterface();
+        Weather todaysWeather = new Weather();
 
         public void GamePlay()
         {
-            WelcomeToGame();
+            welcome.WelcomeToGame();
 
             while(day > 7)
             {
-                
+
                 //display weather
+                todaysWeather.GetTodaysWeather();
+
                 //purchase inventory
+                store.GetSupplies(player);
+                
                 //set recipe
                 //run day
                 //display daily results
@@ -31,19 +47,6 @@ namespace LemonadeStand
             }
         }
 
-        public void WelcomeToGame()
-        {
-            Console.WriteLine("Welcome to Steve's Lemonade Stand\nWould you like to play?\nPress '1' to continue.\nOtherwise, go away.\nNobody wants you around anyway.");
-
-            if(Console.ReadLine() == "1")
-            {
-                Console.WriteLine("Let the game begin");
-            }
-
-            else
-            {
-                //end program
-            }
-        }
+       
     }
 }

@@ -11,8 +11,8 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
 
-            Weather today = new Weather();
-            today.GetTodaysWeather();
+            Store today = new Store();
+            today.GetSupplies();
             Console.ReadKey();
 
           

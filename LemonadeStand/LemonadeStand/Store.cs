@@ -9,46 +9,56 @@ namespace LemonadeStand
     class Store
     {
         //member variables
+        public double price;
+        public int quantity;
 
         //constructor
 
         //member methods
 
-        public void GetSupplies()
+        public void GetSupplies(Player player)
         {
-            Console.WriteLine("Purchase options:\n For cups, enter '1'\nFor lemons, enter '2'\nFor sugar, enter '3'\nFor ice cubes, enter '4'");
+            Console.WriteLine("Purchase options:\nFor cups, enter '1'\nFor lemons, enter '2'\nFor sugar, enter '3'\nFor ice cubes, enter '4'");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
-                    GetCups();
+                    GetPaperCups();
+                    CheckIfEnoughMoney(player);
+                    player.inventory.paperCups += quantity;
                     break;
 
                 case "2":
                     GetLemons();
+                    CheckIfEnoughMoney(player);
+                    player.inventory.lemons += quantity;
                     break;
 
                 case "3":
                     GetCupsOfSugar();
+                    CheckIfEnoughMoney(player);
+                    player.inventory.cupsOfSugar += quantity;
                     break;
 
                 case "4":
                     GetIceCubes();
+                    CheckIfEnoughMoney(player);
+                    player.inventory.iceCubes += quantity;
                     break;
 
                 default:
                     Console.WriteLine("Please enter valid choice.");
-                    GetSupplies();
+                    GetSupplies(player);
                     break;
             }
         }
 
-        public void GetCups()
+        public void GetPaperCups()
         {
             Console.WriteLine("Cup purchase options:\n25 cups for $.80 - Press '1'\n50 cups for $1.50 - Press '2'\n100 cups for $2.75 - Press '3'");
             string userInput = Console.ReadLine();
-            double price = 0;
-            int quantity = 0;
+            //double price = 0;
+            //int quantity = 0;
             switch (userInput)
             {
                 case "1":
@@ -65,7 +75,7 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Please enter valid choice");
-                    GetCups();
+                    GetPaperCups();
                     break;
             }
         }
@@ -74,8 +84,8 @@ namespace LemonadeStand
         {
             Console.WriteLine("Lemon purchase options\n10 Lemons for $.65 - Press '1'\n30 Lemons for $1.8\n60 Lemons for $3.5 - Press '3'");
             string userInput = Console.ReadLine();
-            double price = 0;
-            int quantity = 0;
+            //double price = 0;
+            //int quantity = 0;
             switch (userInput)
             {
                 case "1":
@@ -97,12 +107,28 @@ namespace LemonadeStand
             }
         }
 
+        //public void BuyLemons(Player player)
+        //{
+        //    Console.WriteLine("how many lemons");
+        //    int boughtLemons = int.Parse(Console.ReadLine());
+
+        //    for(int i = 0; i < boughtLemons; i++)
+        //    {
+        //        Lemon lemon = new Lemon();
+        //        player.inventory.lemons.Add(lemon);                        //can make Selllemons separate methods
+
+        //    }
+
+        //    player.wallet.money -= (boughtLemons * player.inventory.lemons[0].price);
+        //}
+
+
         public void GetCupsOfSugar()
         {
             Console.WriteLine("Sugar purchase options\n8 cups of sugar for $.70 - Press '1'\n20 cups of sugar for $1.30\n45 cups of sugar for $2.50 - Press '3'");
             string userInput = Console.ReadLine();
-            double price = 0;
-            int quantity = 0;
+            //double price = 0;
+            //int quantity = 0;
             switch (userInput)
             {
                 case "1":
@@ -128,8 +154,8 @@ namespace LemonadeStand
         {
             Console.WriteLine("Ice cube purchase options\n100 Ice cubes for $.85 - Press '1'\n250 Ice cubes for $2.00\n500 Ice cubes for $3.90 - Press '3'");
             string userInput = Console.ReadLine();
-            double price = 0;
-            int quantity = 0;
+            //double price = 0;
+            //int quantity = 0;
             switch (userInput)
             {
                 case "1":
@@ -148,6 +174,19 @@ namespace LemonadeStand
                     Console.WriteLine("Please enter valid choice");
                     GetIceCubes();
                     break;
+            }
+        }
+
+        public void CheckIfEnoughMoney(Player player)
+        {
+            if(price > player.wallet.money)
+            {
+                Console.WriteLine("You do not have enough money");
+            }
+
+            else
+            {
+                player.wallet.money -= price;
             }
         }
     }

@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    class Lemon
     {
-        //member variables
-        //List<Customer>
-
-        //constructor
-
-        //member methods
 
     }
 }
