@@ -9,7 +9,10 @@ namespace LemonadeStand
     class Program
     {
         static void Main(string[] args)
-        { 
+        {
+
+            Weather today = new Weather();
+            today.GetTodaysWeather();
             Console.ReadKey();
 
           
