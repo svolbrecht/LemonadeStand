@@ -16,6 +16,7 @@ namespace LemonadeStand
 
         public void GamePlay()
         {
+            WelcomeToGame();
 
             while(day > 7)
             {

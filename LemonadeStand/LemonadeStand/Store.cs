@@ -99,12 +99,56 @@ namespace LemonadeStand
 
         public void GetCupsOfSugar()
         {
-
+            Console.WriteLine("Sugar purchase options\n8 cups of sugar for $.70 - Press '1'\n20 cups of sugar for $1.30\n45 cups of sugar for $2.50 - Press '3'");
+            string userInput = Console.ReadLine();
+            double price = 0;
+            int quantity = 0;
+            switch (userInput)
+            {
+                case "1":
+                    price = .7;
+                    quantity = 8;
+                    break;
+                case "2":
+                    price = 1.3;
+                    quantity = 20;
+                    break;
+                case "3":
+                    price = 2.5;
+                    quantity = 45;
+                    break;
+                default:
+                    Console.WriteLine("Please enter valid choice");
+                    GetCupsOfSugar();
+                    break;
+            }
         }
 
         public void GetIceCubes()
         {
-
+            Console.WriteLine("Ice cube purchase options\n100 Ice cubes for $.85 - Press '1'\n250 Ice cubes for $2.00\n500 Ice cubes for $3.90 - Press '3'");
+            string userInput = Console.ReadLine();
+            double price = 0;
+            int quantity = 0;
+            switch (userInput)
+            {
+                case "1":
+                    price = .85;
+                    quantity = 100;
+                    break;
+                case "2":
+                    price = 2;
+                    quantity = 250;
+                    break;
+                case "3":
+                    price = 3.9;
+                    quantity = 250;
+                    break;
+                default:
+                    Console.WriteLine("Please enter valid choice");
+                    GetIceCubes();
+                    break;
+            }
         }
     }
 }
