@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         //member variables
         int lemons;
-        int sugarCups;
+        int cupsOfSugar;
         int iceCubes;
         int cups;
         double capital;
