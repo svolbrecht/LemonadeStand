@@ -18,9 +18,9 @@ namespace LemonadeStand
 
         public void GetSupplies(Player player)
         {
+
             Console.WriteLine("Purchase options:\nFor cups, Press '1'\nFor lemons, Press '2'\nFor sugar, Press '3'\nFor ice cubes, Press '4'");
-            string userInput = Console.ReadLine();
-            switch (userInput)
+            switch (Console.ReadLine())
             {
                 case "1":
                     GetPaperCups();
@@ -68,10 +68,7 @@ namespace LemonadeStand
         public void GetPaperCups()
         {
             Console.WriteLine("Cup purchase options:\n25 cups for $.80 - Press '1'\n50 cups for $1.50 - Press '2'\n100 cups for $2.75 - Press '3'");
-            string userInput = Console.ReadLine();
-            //double price = 0;
-            //int quantity = 0;
-            switch (userInput)
+            switch (Console.ReadLine())
             {
                 case "1":
                     price = .8;
@@ -95,10 +92,7 @@ namespace LemonadeStand
         public void GetLemons()
         {
             Console.WriteLine("Lemon purchase options\n10 Lemons for $.65 - Press '1'\n30 Lemons for $1.8 - Press '2'\n60 Lemons for $3.5 - Press '3'");
-            string userInput = Console.ReadLine();
-            //double price = 0;
-            //int quantity = 0;
-            switch (userInput)
+            switch (Console.ReadLine())
             {
                 case "1":
                     price = .65;
@@ -138,10 +132,7 @@ namespace LemonadeStand
         public void GetCupsOfSugar()
         {
             Console.WriteLine("Sugar purchase options\n8 cups of sugar for $.70 - Press '1'\n20 cups of sugar for $1.30 - Press '2'\n45 cups of sugar for $2.50 - Press '3'");
-            string userInput = Console.ReadLine();
-            //double price = 0;
-            //int quantity = 0;
-            switch (userInput)
+            switch (Console.ReadLine())
             {
                 case "1":
                     price = .7;
@@ -165,10 +156,7 @@ namespace LemonadeStand
         public void GetIceCubes()
         {
             Console.WriteLine("Ice cube purchase options\n100 Ice cubes for $.85 - Press '1'\n250 Ice cubes for $2.00 - Press '2'\n500 Ice cubes for $3.90 - Press '3'");
-            string userInput = Console.ReadLine();
-            //double price = 0;
-            //int quantity = 0;
-            switch (userInput)
+            switch (Console.ReadLine())
             {
                 case "1":
                     price = .85;

@@ -10,9 +10,10 @@ namespace LemonadeStand
     {
         //member variables
         int actualTemperature;
-        string actualConditions;
-        int forecastedtemp;
-        string forecastedcond;
+        string actualCondition;
+        int forecastedTemperature;
+        string forecastedCondition;
+        int weatherConditionNumber;
         Random randomNumber = new Random();
 
 
@@ -20,59 +21,111 @@ namespace LemonadeStand
 
         public Weather()
         {
-            //setalltheweatherstuff();
+            SetAllWeather();
         }
 
         //member methods
 
-        //    public void setalltheweatherstuff()
-        //{
-        //    setactualweather()
-        //    setactualcondition()
-        //    setforecastedweather()
-        //    setforecastedcondition()
-        //}
-        public void GetTodaysWeather()
+        public void SetAllWeather()
         {
-            SetTodaysTemperature();
-            SetTodaysConditions();
-            Console.WriteLine("Today's weather is " + actualTemperature + " degrees and " + actualConditions);
+            SetForecastedWeather();
+            SetActualWeather();
+        }
+
+        public void SetForecastedWeather()
+        {
+            SetForecastedTemperature();
+            SetForecastedConditions();
+            Console.WriteLine("Today's weather is forecasted to be:\n" + forecastedTemperature + " degrees and " + forecastedCondition);
         }
 
 
-        public void SetTodaysTemperature()
+        public void SetForecastedTemperature()
         { 
-            actualTemperature = randomNumber.Next(55, 80);
-            //Console.WriteLine("Todays weather is:\n" + temperature + " degrees");
+            forecastedTemperature = randomNumber.Next(55, 80);
         }
 
-        public void SetTodaysConditions()
+        public void SetForecastedConditions()
         {
-            int number = randomNumber.Next(1, 4);
+            weatherConditionNumber = randomNumber.Next(1, 5);
 
-            switch(number)
+            switch(weatherConditionNumber)
             {
                 case 1:
-                    actualConditions = "Sunny";
-                    //Console.WriteLine("Sunny");
+                    forecastedCondition = "Sunny";
                     break;
 
                 case 2:
-                    actualConditions = "Mostly Cloudy";
-                    //Console.WriteLine("Mosty Cloudy");
+                    forecastedCondition = "Partly Cloudy";
                     break;
 
                 case 3:
-                    actualConditions = "Overcast";
-                    //Console.WriteLine("Overcast");
+                    forecastedCondition = "Overcast";
                     break;
 
                 case 4:
-                    actualConditions = "Rainy";
-                    //Console.WriteLine("Rainy");
+                    forecastedCondition = "Rainy";
                     break;
             }
             
+        }
+        public void SetActualWeather()
+        {
+            SetActualTemperature();
+            SetActualCondition();
+            Console.WriteLine("Today's weather is:\n" + actualTemperature + " degrees and " + actualCondition);
+        }
+
+        public void SetActualTemperature()
+        {
+            actualTemperature = randomNumber.Next(forecastedTemperature - 4, forecastedTemperature + 5);
+        }
+
+        public void SetActualCondition()
+        {
+            if (weatherConditionNumber >= 2 && weatherConditionNumber <= 3)
+            {
+                switch (randomNumber.Next(weatherConditionNumber - 1, weatherConditionNumber + 2))
+                {
+                    case 1:
+                        actualCondition = "Sunny";
+                        break;
+
+                    case 2:
+                        actualCondition = "Partly Cloudy";
+                        break;
+
+                    case 3:
+                        actualCondition = "Overcast";
+                        break;
+
+                    case 4:
+                        actualCondition = "Rainy";
+                        break;
+                }
+            }
+
+            else if(weatherConditionNumber == 1)
+                switch (randomNumber.Next(weatherConditionNumber, weatherConditionNumber + 2))
+                { 
+                    case 1:
+                    actualCondition = "Sunny";
+                    break;
+                case 2:
+                    actualCondition = "Partly Cloudy";
+                    break;
+                }
+
+            else if (weatherConditionNumber == 4)
+                switch (randomNumber.Next(weatherConditionNumber - 1, weatherConditionNumber + 1))
+                {
+                    case 3:
+                        actualCondition = "Overcast";
+                        break;
+                    case 4:
+                        actualCondition = "Rainy";
+                        break;
+                }
         }
     }
 }

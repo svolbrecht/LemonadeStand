@@ -11,8 +11,8 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             Player player = new Player();
-            Recipe today = new Recipe();
-            today.QuestionChangeRecipe(player);
+            Weather today = new Weather();
+            today.SetAllWeather();
             Console.ReadKey();
 
           

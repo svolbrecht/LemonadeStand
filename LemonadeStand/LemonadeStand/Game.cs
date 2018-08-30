@@ -30,17 +30,19 @@ namespace LemonadeStand
         {
             welcome.WelcomeToGame();
 
-            while(day > 7)
+            while(day <= 7)
             {
 
                 //display weather
-                todaysWeather.GetTodaysWeather();
+                todaysWeather.SetForecastedWeather();
 
                 //purchase inventory
                 store.GetSupplies(player);
-                
+
                 //set recipe
+
                 //run day
+                todaysWeather.SetActualWeather();
                 //display daily results
                 //display running totals
                 day++;
