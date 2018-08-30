@@ -9,25 +9,40 @@ namespace LemonadeStand
     class Weather
     {
         //member variables
-        int temperature;
-        string conditions;
+        int actualTemperature;
+        string actualConditions;
+        int forecastedtemp;
+        string forecastedcond;
         Random randomNumber = new Random();
 
 
         //constructor
 
+        public Weather()
+        {
+            //setalltheweatherstuff();
+        }
+
         //member methods
+
+        //    public void setalltheweatherstuff()
+        //{
+        //    setactualweather()
+        //    setactualcondition()
+        //    setforecastedweather()
+        //    setforecastedcondition()
+        //}
         public void GetTodaysWeather()
         {
             SetTodaysTemperature();
             SetTodaysConditions();
-            Console.WriteLine("Today's weather is " + temperature + " degrees and " + conditions);
+            Console.WriteLine("Today's weather is " + actualTemperature + " degrees and " + actualConditions);
         }
 
 
         public void SetTodaysTemperature()
         { 
-            temperature = randomNumber.Next(55, 80);
+            actualTemperature = randomNumber.Next(55, 80);
             //Console.WriteLine("Todays weather is:\n" + temperature + " degrees");
         }
 
@@ -38,22 +53,22 @@ namespace LemonadeStand
             switch(number)
             {
                 case 1:
-                    conditions = "Sunny";
+                    actualConditions = "Sunny";
                     //Console.WriteLine("Sunny");
                     break;
 
                 case 2:
-                    conditions = "Mostly Cloudy";
+                    actualConditions = "Mostly Cloudy";
                     //Console.WriteLine("Mosty Cloudy");
                     break;
 
                 case 3:
-                    conditions = "Overcast";
+                    actualConditions = "Overcast";
                     //Console.WriteLine("Overcast");
                     break;
 
                 case 4:
-                    conditions = "Rainy";
+                    actualConditions = "Rainy";
                     //Console.WriteLine("Rainy");
                     break;
             }

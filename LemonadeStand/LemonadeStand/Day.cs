@@ -10,8 +10,13 @@ namespace LemonadeStand
     {
         //member variables
         //List<Customer>
+        Weather weather;
 
         //constructor
+        public Day()
+        {
+            weather = new Weather();
+        }
 
         //member methods
 

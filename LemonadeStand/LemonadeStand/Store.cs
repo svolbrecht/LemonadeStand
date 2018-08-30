@@ -191,14 +191,14 @@ namespace LemonadeStand
 
         public void CheckIfEnoughMoney(Player player)
         {
-            if(price > player.wallet.money)
+            if(price > player.inventory.money)
             {
                 Console.WriteLine("You do not have enough money");
             }
 
             else
             {
-                player.wallet.money -= price;
+                player.inventory.money -= price;
             }
         }
     }

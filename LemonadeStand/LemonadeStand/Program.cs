@@ -11,8 +11,8 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             Player player = new Player();
-            Store today = new Store();
-            today.GetSupplies(player);
+            Recipe today = new Recipe();
+            today.QuestionChangeRecipe(player);
             Console.ReadKey();
 
           

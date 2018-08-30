@@ -13,11 +13,12 @@ namespace LemonadeStand
         public int cupsOfSugar;
         public int paperCups;
         public int iceCubes;
+        public double money = 20;
 
 
         //create parent class with lemons, sugar, ice cubes and cups as children
         //public List<Lemon> lemons = new List<Lemon>();
-        
+
 
 
         //constructor
@@ -27,6 +28,13 @@ namespace LemonadeStand
 
         //member methods
 
+        public void DisplayInvetory()
+        {
+            Console.WriteLine(paperCups + " paper cups");
+            Console.WriteLine(lemons + " lemons");
+            Console.WriteLine(cupsOfSugar + " cups of sugar");
+            Console.WriteLine(iceCubes + " ice cubes");
+        }
         
     }
 }
