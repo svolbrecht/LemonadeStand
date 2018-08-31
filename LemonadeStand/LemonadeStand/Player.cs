@@ -11,6 +11,8 @@ namespace LemonadeStand
         //member variables
         public Inventory inventory;
         public Recipe recipe;
+        public double pricePerCup = .20;
+        public int paperCupsInPitcher = 10;
         //constructor
 
         public Player()
@@ -20,6 +22,22 @@ namespace LemonadeStand
         }
 
         //member methods
+        
+        public void ChangePricePerCup()
+        {
+            Console.WriteLine(pricePerCup);
+            Console.WriteLine("Set price");
+            pricePerCup = double.Parse(Console.ReadLine());
+        }
 
+        public void MakePitcher()
+        {
+
+        }
+
+        public void SellLemonade()
+        {
+            if(paperCupsInPitcher >= 0 && inventory.paperCups != 0)
+        }
     }
 }

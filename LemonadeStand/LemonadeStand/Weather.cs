@@ -9,47 +9,48 @@ namespace LemonadeStand
     class Weather
     {
         //member variables
-        int actualTemperature;
+        public int actualTemperature;
         string actualCondition;
         int forecastedTemperature;
         string forecastedCondition;
-        int weatherConditionNumber;
-        Random randomNumber = new Random();
+        int forecastedConditionNumber;
+        public int actualConditionNumber;
+        
 
 
         //constructor
 
         public Weather()
         {
-            SetAllWeather();
+            //SetAllWeather();
         }
 
         //member methods
 
-        public void SetAllWeather()
-        {
-            SetForecastedWeather();
-            SetActualWeather();
-        }
+        //public void SetAllWeather()
+        //{
+        //    SetForecastedWeather();
+        //    SetActualWeather();
+        //}
 
-        public void SetForecastedWeather()
+        public void SetForecastedWeather(Game game)
         {
-            SetForecastedTemperature();
-            SetForecastedConditions();
+            SetForecastedTemperature(game);
+            SetForecastedConditions(game);
             Console.WriteLine("Today's weather is forecasted to be:\n" + forecastedTemperature + " degrees and " + forecastedCondition);
         }
 
 
-        public void SetForecastedTemperature()
+        public void SetForecastedTemperature(Game game)
         { 
-            forecastedTemperature = randomNumber.Next(55, 80);
+            forecastedTemperature = game.random.Next(55, 80);
         }
 
-        public void SetForecastedConditions()
+        public void SetForecastedConditions(Game game)
         {
-            weatherConditionNumber = randomNumber.Next(1, 5);
+            forecastedConditionNumber = game.random.Next(1, 5);
 
-            switch(weatherConditionNumber)
+            switch(forecastedConditionNumber)
             {
                 case 1:
                     forecastedCondition = "Sunny";
@@ -69,23 +70,25 @@ namespace LemonadeStand
             }
             
         }
-        public void SetActualWeather()
+        public void SetActualWeather(Game game)
         {
-            SetActualTemperature();
-            SetActualCondition();
+            SetActualTemperature(game);
+            SetActualCondition(game);
             Console.WriteLine("Today's weather is:\n" + actualTemperature + " degrees and " + actualCondition);
         }
 
-        public void SetActualTemperature()
+        public void SetActualTemperature(Game game)
         {
-            actualTemperature = randomNumber.Next(forecastedTemperature - 4, forecastedTemperature + 5);
+            actualTemperature = game.random.Next(forecastedTemperature - 4, forecastedTemperature + 5);
         }
 
-        public void SetActualCondition()
+        public void SetActualCondition(Game game)
         {
-            if (weatherConditionNumber >= 2 && weatherConditionNumber <= 3)
+            if (forecastedConditionNumber >= 2 && forecastedConditionNumber <= 3)
             {
-                switch (randomNumber.Next(weatherConditionNumber - 1, weatherConditionNumber + 2))
+                actualConditionNumber = game.random.Next(forecastedConditionNumber - 1, forecastedConditionNumber + 2);
+
+                switch (actualConditionNumber)
                 {
                     case 1:
                         actualCondition = "Sunny";
@@ -104,20 +107,19 @@ namespace LemonadeStand
                         break;
                 }
             }
-
-            else if(weatherConditionNumber == 1)
-                switch (randomNumber.Next(weatherConditionNumber, weatherConditionNumber + 2))
-                { 
+            else if (forecastedConditionNumber == 1)
+                switch (game.random.Next(forecastedConditionNumber, forecastedConditionNumber + 2))
+                {
                     case 1:
-                    actualCondition = "Sunny";
-                    break;
-                case 2:
-                    actualCondition = "Partly Cloudy";
-                    break;
+                        actualCondition = "Sunny";
+                        break;
+                    case 2:
+                        actualCondition = "Partly Cloudy";
+                        break;
                 }
 
-            else if (weatherConditionNumber == 4)
-                switch (randomNumber.Next(weatherConditionNumber - 1, weatherConditionNumber + 1))
+            else if (forecastedConditionNumber == 4)
+                switch (game.random.Next(forecastedConditionNumber - 1, forecastedConditionNumber + 1))
                 {
                     case 3:
                         actualCondition = "Overcast";

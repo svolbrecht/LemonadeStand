@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Recipe
     {
         //member variables
-        int paperCupsPerPitcher = 10;
+
         int lemonsInRecipe = 4;
         int cupsOfSugarInRecipe = 4;
         int iceCubesInRecipe = 4;
@@ -27,7 +27,7 @@ namespace LemonadeStand
         public void QuestionChangeRecipe(Player player)
         {
             DisplayCurrentRecipe();
-            Console.WriteLine("Change recipe?\nFor yes - Press '1'\nFor no - Press any button");
+            Console.WriteLine("\nSet recipe?\nFor yes - Press '1'\nFor no - Press any button");
 
             switch (Console.ReadLine())
             {
@@ -48,7 +48,7 @@ namespace LemonadeStand
 
         public void DisplayCurrentRecipe()
         {
-            Console.WriteLine("Current recipe:");
+            Console.WriteLine("\nCurrent recipe:");
             Console.WriteLine("Lemons: " + lemonsInRecipe);
             Console.WriteLine("Cups of Sugar: " + cupsOfSugarInRecipe);
             Console.WriteLine("Ice cubes: " + iceCubesInRecipe);

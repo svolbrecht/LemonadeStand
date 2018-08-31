@@ -13,36 +13,43 @@ namespace LemonadeStand
         int day = 0;
         Player player;
         Store store;
-        //Day day;
+        Day today;
+        public Random random;
+
+
         //constructor
 
         public Game()
         {
             player = new Player();
             store = new Store();
+            today = new Day();
+            random = new Random();
+
         }
 
         //member methods
-        UserInterface welcome = new UserInterface();
         Weather todaysWeather = new Weather();
 
-        public void GamePlay()
+        public void GamePlay(Game game)
         {
-            welcome.WelcomeToGame();
+            UserInterface.WelcomeToGame();
+            UserInterface.DisplayRules();
 
-            while(day <= 7)
+            while(day < 7)
             {
 
                 //display weather
-                todaysWeather.SetForecastedWeather();
+                todaysWeather.SetForecastedWeather(game);
 
                 //purchase inventory
-                store.GetSupplies(player);
+                store.AskGetSupplies(player);
 
                 //set recipe
+                player.recipe.QuestionChangeRecipe(player);
 
                 //run day
-                todaysWeather.SetActualWeather();
+                todaysWeather.SetActualWeather(game);
                 //display daily results
                 //display running totals
                 day++;

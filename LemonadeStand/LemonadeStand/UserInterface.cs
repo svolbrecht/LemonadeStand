@@ -14,20 +14,24 @@ namespace LemonadeStand
 
         //member methods
 
-        public void WelcomeToGame()
+        public static void WelcomeToGame()
         {
-            Console.WriteLine("Welcome to Steve's Lemonade Stand\nWould you like to play?\nPress '1' to continue.\nOtherwise, go away.\nNobody wants you around anyway.");
+            Console.WriteLine("Welcome to Steve's Lemonade Stand\n\nWould you like to play?\nPress '1' to continue.\n\nOtherwise, go away.\nNobody wants you around anyway.");
 
             if (Console.ReadLine() == "1")
             {
-                Console.WriteLine("Let the game begin");
+                Console.WriteLine("\nLet the game begin.\n");
             }
 
             else
             {
-                //end program
+                Environment.Exit(0);
             }
         }
 
+        public static void DisplayRules()
+        {
+            Console.WriteLine("You have 7 days to make as much money as possible. You have control of pricing, the recipe, inventory, and purchasing \nsupplies. Buy ingredients, set your recipe and start selling. You'll have to deal with the weather, which plays a part \nwhen customers are deciding to buy.\n\n");
+        }
     }
 }

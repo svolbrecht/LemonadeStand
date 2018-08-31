@@ -16,6 +16,20 @@ namespace LemonadeStand
 
         //member methods
 
+            public void AskGetSupplies(Player player)
+        {
+            Console.WriteLine("\nWould you like to buy supplies?\nFor yes - Press '1'\nFor no - Press '2'");
+
+            switch(Console.ReadLine())
+            {
+                case "1":
+                    GetSupplies(player);
+                    break;
+                case "2":
+                    break;
+            }
+        }
+
         public void GetSupplies(Player player)
         {
 

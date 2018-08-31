@@ -10,15 +10,24 @@ namespace LemonadeStand
     {
         //member variables
         //List<Customer>
-        Weather weather;
+        public Weather weather;
+        public List<Customer> customers;
 
         //constructor
         public Day()
         {
             weather = new Weather();
+            customers = new List<Customer>();
         }
 
         //member methods
 
+        public void CreateCusomers(Player player, Game game)
+        {
+            for(int i = 0; i <= 100; i++)
+            {
+                customers.Add(new Customer(player, weather, game));
+            }
+        }
     }
 }
