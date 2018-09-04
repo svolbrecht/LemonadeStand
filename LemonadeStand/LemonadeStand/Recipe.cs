@@ -10,9 +10,9 @@ namespace LemonadeStand
     {
         //member variables
 
-        int lemonsInRecipe = 4;
-        int cupsOfSugarInRecipe = 4;
-        int iceCubesInRecipe = 4;
+        public int lemonsInRecipe = 4;
+        public int cupsOfSugarInRecipe = 4;
+        public int iceCubesInRecipe = 4;
 
 
         //constructor

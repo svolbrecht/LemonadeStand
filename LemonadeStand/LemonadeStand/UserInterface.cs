@@ -33,5 +33,10 @@ namespace LemonadeStand
         {
             Console.WriteLine("You have 7 days to make as much money as possible. You have control of pricing, the recipe, inventory, and purchasing \nsupplies. Buy ingredients, set your recipe and start selling. You'll have to deal with the weather, which plays a part \nwhen customers are deciding to buy.\n\n");
         }
+
+        public void EndOfGame(Player player)
+        {
+            Console.WriteLine("You have reached the end of the game.\n\nYou have sold:\n" + player.totalCupsSold + " cups of lemonade\nand you have made:\n$" + player.totalMoneyMade);
+        }
     }
 }

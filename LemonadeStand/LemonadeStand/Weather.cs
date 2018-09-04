@@ -108,7 +108,10 @@ namespace LemonadeStand
                 }
             }
             else if (forecastedConditionNumber == 1)
-                switch (game.random.Next(forecastedConditionNumber, forecastedConditionNumber + 2))
+            {
+                actualConditionNumber = game.random.Next(forecastedConditionNumber, forecastedConditionNumber + 2);
+
+                switch (actualConditionNumber)
                 {
                     case 1:
                         actualCondition = "Sunny";
@@ -117,9 +120,14 @@ namespace LemonadeStand
                         actualCondition = "Partly Cloudy";
                         break;
                 }
+            }
+
 
             else if (forecastedConditionNumber == 4)
-                switch (game.random.Next(forecastedConditionNumber - 1, forecastedConditionNumber + 1))
+            {
+                actualConditionNumber = game.random.Next(forecastedConditionNumber, forecastedConditionNumber + 2);
+
+                switch (actualConditionNumber)
                 {
                     case 3:
                         actualCondition = "Overcast";
@@ -128,6 +136,7 @@ namespace LemonadeStand
                         actualCondition = "Rainy";
                         break;
                 }
+            }
         }
     }
 }

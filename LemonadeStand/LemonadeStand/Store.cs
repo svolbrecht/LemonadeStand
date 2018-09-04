@@ -27,6 +27,10 @@ namespace LemonadeStand
                     break;
                 case "2":
                     break;
+                default:
+                    Console.WriteLine("Please enter valid response");
+                    AskGetSupplies(player);
+                    break;
             }
         }
 

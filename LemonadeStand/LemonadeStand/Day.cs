@@ -18,15 +18,16 @@ namespace LemonadeStand
         {
             weather = new Weather();
             customers = new List<Customer>();
+
         }
 
         //member methods
 
-        public void CreateCusomers(Player player, Game game)
+        public void CreateCusomers(Player player, Day today, Game game)
         {
-            for(int i = 0; i <= 100; i++)
+            for (int i = 0; i <= 100; i++)
             {
-                customers.Add(new Customer(player, weather, game));
+                customers.Add(new Customer(player, today, game));
             }
         }
     }

@@ -29,7 +29,6 @@ namespace LemonadeStand
         }
 
         //member methods
-        Weather todaysWeather = new Weather();
 
         public void GamePlay(Game game)
         {
@@ -40,7 +39,7 @@ namespace LemonadeStand
             {
 
                 //display weather
-                todaysWeather.SetForecastedWeather(game);
+                today.weather.SetForecastedWeather(game);
 
                 //purchase inventory
                 store.AskGetSupplies(player);
@@ -49,11 +48,20 @@ namespace LemonadeStand
                 player.recipe.QuestionChangeRecipe(player);
 
                 //run day
-                todaysWeather.SetActualWeather(game);
+                today.weather.SetActualWeather(game);
+                today.CreateCusomers(player, today, game);
+
                 //display daily results
+                player.DisplayDailyResults();
+
                 //display running totals
+                player.DisplayWeeklyResults();
+
+
                 day++;
             }
+
+
         }
 
        

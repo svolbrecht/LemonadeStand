@@ -16,29 +16,26 @@ namespace LemonadeStand
         double pricePreference;
 
         //constructor
-        public Customer(Player player, Weather weather, Game game)
+        public Customer(Player player, Day today, Game game)
         {
-            DecisionToBuy(player, weather, game);
+            DecisionToBuy(player, today, game);
         }
 
         //member methods
 
-        public void DecisionToBuy(Player player, Weather weather, Game game)
+        public void DecisionToBuy(Player player, Day today, Game game)
         {
             GetConditionPreference(game);
             GetTemperaturePreference(game);
             GetPricePreference(game);
 
-            if(player.pricePerCup <= pricePreference && conditionPreference >= weather.actualConditionNumber && temperaturePreference >= weather.actualTemperature)
+            if(player.pricePerCup <= pricePreference && conditionPreference >= today.weather.actualConditionNumber && temperaturePreference >= today.weather.actualTemperature)
             {
-                player.inventory.money += player.pricePerCup;
-                player.inventory.paperCups -= 1;
-                player.paperCupsInPitcher -= 1;
+                player.SellLemonade();  
             }
 
             else
-            {
-                
+            {    
             }
         }
 
