@@ -30,6 +30,7 @@ namespace LemonadeStand
 
         public void DisplayInvetory()
         {
+            Console.WriteLine("\n\nCurrent inventory:");
             Console.WriteLine(paperCups + " paper cups");
             Console.WriteLine(lemons + " lemons");
             Console.WriteLine(cupsOfSugar + " cups of sugar");

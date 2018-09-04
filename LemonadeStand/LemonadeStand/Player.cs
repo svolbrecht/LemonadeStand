@@ -47,18 +47,13 @@ namespace LemonadeStand
 
         public void MakePitcher()
         {
-            if (inventory.paperCups >= 10 && inventory.lemons >= recipe.lemonsInRecipe && inventory.cupsOfSugar >= recipe.cupsOfSugarInRecipe && inventory.iceCubes >= recipe.iceCubesInRecipe)
+            if (inventory.paperCups >= 10 && inventory.lemons >= recipe.lemonsInRecipe && inventory.cupsOfSugar >= recipe.cupsOfSugarInRecipe && inventory.iceCubes >= (recipe.iceCubesInRecipe * 10))
             {
                 inventory.lemons -= recipe.lemonsInRecipe;
                 inventory.cupsOfSugar -= recipe.cupsOfSugarInRecipe;
                 inventory.iceCubes -= (recipe.iceCubesInRecipe * 10);
                 paperCupsInPitcher = 10;
-                inventory.money += pricePerCup;
-                paperCupsInPitcher -= 1;
-                cupsSoldToday += 1;
-                totalCupsSold += 1;
-                moneyMadeToday += pricePerCup;
-                totalMoneyMade += pricePerCup;
+                SellLemonade();
                 Console.WriteLine("You sold a cup of lemonade");
             }
             else
@@ -93,7 +88,7 @@ namespace LemonadeStand
 
         public void DisplayWeeklyResults()
         {
-            Console.WriteLine("\nWeekly results:\nYou sold " + totalCupsSold + "\nYou made $" + totalMoneyMade);
+            Console.WriteLine("\nWeekly results:\nYou sold " + totalCupsSold + " cups of lemonade\nYou made $" + totalMoneyMade);
         }
 
         public void SetProfit()
@@ -103,8 +98,8 @@ namespace LemonadeStand
 
         public void EndOfGame()
         {
-            Console.WriteLine("You have reached the end of the game.\n\nYour total cups of lemonade sold is:  " + totalCupsSold + "\nYour final profit is:\n$" + profit);
-
+            SetProfit();
+            Console.WriteLine("\n\nYou have reached the end of the game.\n\nYour total cups of lemonade sold is:  " + totalCupsSold + "\nYour final profit is:  $" + profit);
         }
     }
 }
