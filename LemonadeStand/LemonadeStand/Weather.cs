@@ -74,7 +74,7 @@ namespace LemonadeStand
         {
             SetActualTemperature(game);
             SetActualCondition(game);
-            Console.WriteLine("Today's weather is:\n" + actualTemperature + " degrees and " + actualCondition);
+            Console.WriteLine("\nToday's weather is:\n" + actualTemperature + " degrees and " + actualCondition);
         }
 
         public void SetActualTemperature(Game game)

@@ -17,6 +17,8 @@ namespace LemonadeStand
         public int totalCupsSold;
         public double moneyMadeToday;
         public double totalMoneyMade;
+        public double moneySpent;
+        public double profit;
         //constructor
 
         public Player()
@@ -29,9 +31,18 @@ namespace LemonadeStand
         
         public void ChangePricePerCup()
         {
-            Console.WriteLine(pricePerCup);
-            Console.WriteLine("Set price");
-            pricePerCup = double.Parse(Console.ReadLine());
+            Console.WriteLine("\nCurrent price per cup:\n$" + pricePerCup);
+            Console.WriteLine("\nSet price");
+           
+            try
+            {
+                pricePerCup = double.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Enter valid price. Must be a decimal or whole number.");
+                ChangePricePerCup();
+            }
         }
 
         public void MakePitcher()
@@ -40,12 +51,19 @@ namespace LemonadeStand
             {
                 inventory.lemons -= recipe.lemonsInRecipe;
                 inventory.cupsOfSugar -= recipe.cupsOfSugarInRecipe;
-                inventory.iceCubes -= recipe.iceCubesInRecipe;
+                inventory.iceCubes -= (recipe.iceCubesInRecipe * 10);
                 paperCupsInPitcher = 10;
+                inventory.money += pricePerCup;
+                paperCupsInPitcher -= 1;
+                cupsSoldToday += 1;
+                totalCupsSold += 1;
+                moneyMadeToday += pricePerCup;
+                totalMoneyMade += pricePerCup;
+                Console.WriteLine("You sold a cup of lemonade");
             }
             else
             {
-
+                Console.WriteLine("You have run out of supplies");
             }
         }
 
@@ -59,25 +77,34 @@ namespace LemonadeStand
                 totalCupsSold += 1;
                 moneyMadeToday += pricePerCup;
                 totalMoneyMade += pricePerCup;
-            }
-            else if(paperCupsInPitcher == 0)
-            {
-                MakePitcher();
-                SellLemonade();
+                Console.WriteLine("You sold a cup of lemonade");
             }
             else
             {
-
+                MakePitcher();
             }
         }
         public void DisplayDailyResults()
         {
-            Console.WriteLine("\nToday you sold " + cupsSoldToday + " cups of lemonade");
+            Console.WriteLine("\nToday's results:\nYou sold " + cupsSoldToday + " cups of lemonade\nYou made $" + moneyMadeToday);
+            cupsSoldToday = 0;
+            moneyMadeToday = 0;
         }
 
         public void DisplayWeeklyResults()
         {
-            Console.WriteLine("\nYou have sold " + totalCupsSold + " total");
+            Console.WriteLine("\nWeekly results:\nYou sold " + totalCupsSold + "\nYou made $" + totalMoneyMade);
+        }
+
+        public void SetProfit()
+        {
+            profit = totalMoneyMade - moneySpent;
+        }
+
+        public void EndOfGame()
+        {
+            Console.WriteLine("You have reached the end of the game.\n\nYour total cups of lemonade sold is:  " + totalCupsSold + "\nYour final profit is:\n$" + profit);
+
         }
     }
 }

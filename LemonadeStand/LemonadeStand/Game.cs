@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         //member variables
 
-        int day = 0;
+        int day = 1;
         Player player;
         Store store;
         Day today;
@@ -35,9 +35,9 @@ namespace LemonadeStand
             UserInterface.WelcomeToGame();
             UserInterface.DisplayRules();
 
-            while(day < 7)
+            while(day <= 7)
             {
-
+                Console.WriteLine("\n\n\nDay " + day + "\n\n");
                 //display weather
                 today.weather.SetForecastedWeather(game);
 
@@ -61,7 +61,8 @@ namespace LemonadeStand
 
                 day++;
             }
-
+            
+            player.EndOfGame();
 
         }
 

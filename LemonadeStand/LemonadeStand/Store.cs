@@ -44,24 +44,28 @@ namespace LemonadeStand
                     GetPaperCups();
                     CheckIfEnoughMoney(player);
                     player.inventory.paperCups += quantity;
+                    player.moneySpent += price;
                     break;
 
                 case "2":
                     GetLemons();
                     CheckIfEnoughMoney(player);
                     player.inventory.lemons += quantity;
+                    player.moneySpent += price;
                     break;
 
                 case "3":
                     GetCupsOfSugar();
                     CheckIfEnoughMoney(player);
                     player.inventory.cupsOfSugar += quantity;
+                    player.moneySpent += price;
                     break;
 
                 case "4":
                     GetIceCubes();
                     CheckIfEnoughMoney(player);
                     player.inventory.iceCubes += quantity;
+                    player.moneySpent += price;
                     break;
                 case "5":
                     break;
@@ -72,6 +76,7 @@ namespace LemonadeStand
                     break;
             }
 
+            Console.WriteLine("\n\nCurrent inventory:\n" + player.inventory.lemons + " lemons\n" + player.inventory.cupsOfSugar + " cups of sugar\n" + player.inventory.iceCubes + " ice cubes\n" + player.inventory.paperCups + " paper cups");
             Console.WriteLine("\nPurchase more supplies?\nFor yes - Press '1'\nFor no - Press any button");
 
             switch (Console.ReadLine())
@@ -79,7 +84,6 @@ namespace LemonadeStand
                 case "1":
                     GetSupplies(player);
                     break;
-
                 default:
                     break;
             }
