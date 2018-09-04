@@ -46,6 +46,7 @@ namespace LemonadeStand
 
                 //set recipe
                 player.recipe.QuestionChangeRecipe(player);
+                player.ChangePricePerCup();
 
                 //run day
                 today.weather.SetActualWeather(game);

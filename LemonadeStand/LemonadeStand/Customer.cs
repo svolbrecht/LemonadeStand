@@ -29,7 +29,7 @@ namespace LemonadeStand
             GetTemperaturePreference(game);
             GetPricePreference(game);
 
-            if(player.pricePerCup <= pricePreference && conditionPreference >= today.weather.actualConditionNumber && temperaturePreference >= today.weather.actualTemperature)
+            if(player.pricePerCup <= pricePreference && conditionPreference <= today.weather.actualConditionNumber && temperaturePreference <= today.weather.actualTemperature)
             {
                 player.SellLemonade();  
             }

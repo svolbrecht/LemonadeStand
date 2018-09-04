@@ -63,6 +63,7 @@ namespace LemonadeStand
             else if(paperCupsInPitcher == 0)
             {
                 MakePitcher();
+                SellLemonade();
             }
             else
             {
